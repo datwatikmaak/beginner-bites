@@ -10,3 +10,6 @@ def running_mean(sequence):
     averages = [accum / i for i, accum in enumerate(sums, start=1)]
 
     return [round(elem, 2) for elem in averages]
+
+
+running_mean(sequence=[1, 2, 3])
