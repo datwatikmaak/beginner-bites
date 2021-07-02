@@ -35,4 +35,10 @@ def time_between_shutdowns(loglines):
        calculate the timedelta between the first and last one.
        Return this datetime.timedelta object.
     """
-    pass
+    datetimes = [
+        convert_to_datetime(line)
+        for line in loglines
+        if SHUTDOWN_EVENT in line
+    ]
+
+    return max(datetimes) - min(datetimes)
