@@ -17,7 +17,6 @@ with open(logfile) as f:
 
 
 # for you to code:
-
 def convert_to_datetime(line):
     """TODO 1:
        Extract timestamp from logline and convert it to a datetime object.
