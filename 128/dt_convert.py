@@ -20,4 +20,4 @@ def convert_eu_to_us_date(date):
        To enforce the use of datetime's strptime / strftime (over slicing)
        the tests check if a ValueError is raised for invalid day/month/year
        ranges (no need to code this, datetime does this out of the box)"""
-    pass
+    return datetime.strptime(date, "%d/%m/%Y").strftime("%m/%d/%Y")
