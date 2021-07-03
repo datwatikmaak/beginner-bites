@@ -9,7 +9,9 @@ def years_ago(date):
        Then extract the year from the obtained datetime object and subtract
        it from the THIS_YEAR constant above, returning the int difference.
        So in this example you would get: 2018 - 2015 = 3"""
-    pass
+    converted_date = datetime.strptime(date, "%d %b, %Y")
+
+    return THIS_YEAR - converted_date.year
 
 
 def convert_eu_to_us_date(date):
