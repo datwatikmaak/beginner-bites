@@ -36,7 +36,22 @@ blood_type_text = {
     "AB+": Bloodtype.AB_POS,
 }
 
+
 # complete :
+def _blood_int(b_type):
+    if isinstance(b_type, int):
+        if b_type not in range(Bloodtype.ZERO_NEG.value, Bloodtype.AB_POS.value + 1):
+            raise ValueError(f'Bad blood integer {b_type}')
+        return b_type
+    elif isinstance(b_type, str):
+        if b_type not in blood_type_text:
+            raise ValueError(f'Bad blood type {b_type}')
+        b_type = blood_type_text[b_type]
+    elif not isinstance(b_type, Bloodtype):
+        raise TypeError(f'Invalid blood type type {type(b_type)}')
+    return b_type.value
+
+
 def check_bt(donor, recipient):
     """ Checks red blood cell compatibility based on 8 blood types
         Args:
@@ -45,7 +60,7 @@ def check_bt(donor, recipient):
         Returns:
         bool: True for compatability, False otherwise.
     """
-    pass
+    return all(a >= 0 for a in _particular_antigen_comp(donor=_blood_int(donor), recipient=_blood_int(recipient)))
 
 
 # hint
