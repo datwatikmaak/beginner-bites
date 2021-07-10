@@ -1,5 +1,3 @@
-from collections import Counter
-
 import requests
 
 CAR_DATA = 'https://bites-data.s3.us-east-2.amazonaws.com/cars.json'
@@ -22,10 +20,12 @@ def most_prolific_automaker(year):
     return max(automakers, key=automakers.count)
 
 
-most_prolific_automaker(2013)
-
-
 def get_models(automaker, year):
     """Filter cars 'data' by 'automaker' and 'year',
        return a set of models (a 'set' to avoid duplicate models)"""
-    pass
+    models = []
+    for d in data:
+        if d['year'] == year and d['automaker'] == automaker:
+            models.append(d['model'])
+
+    return set(models)
