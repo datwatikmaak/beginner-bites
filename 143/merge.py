@@ -4,10 +4,23 @@ group1 = {'tim': 30, 'bob': 17, 'ana': 24}
 group2 = {'ana': 26, 'thomas': 64, 'helen': 26}
 group3 = {'brenda': 17, 'otto': 44, 'thomas': 46}
 
+merge = {**group1, **group2, **group3}
+
 
 def get_person_age(name):
     """Look up name (case insensitive search) and return age.
        If name in > 1 dict, return the match of the group with
        greatest N (so group3 > group2 > group1)
     """
-    pass
+    age = None
+
+    if (type(name)) != str:
+        return f"{NOT_FOUND}"
+    if name.lower() not in merge:
+        return f"{NOT_FOUND}"
+
+    for k, v in merge.items():
+        if k == name.lower():
+            age = v
+
+    return age
