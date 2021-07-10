@@ -57,6 +57,10 @@
       <excludeFolder url="file://$MODULE_DIR$/180/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/324/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/128/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/91/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/96/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/136/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/208/.pytest_cache" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (pybites-challenges)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
