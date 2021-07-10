@@ -14,7 +14,15 @@ with requests.Session() as s:
 def most_prolific_automaker(year):
     """Given year 'year' return the automaker that released
        the highest number of new car models"""
-    pass
+    automakers = []
+    for d in data:
+        if d['year'] == year:
+            automakers.append(d['automaker'])
+
+    return max(automakers, key=automakers.count)
+
+
+most_prolific_automaker(2013)
 
 
 def get_models(automaker, year):
