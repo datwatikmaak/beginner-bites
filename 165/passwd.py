@@ -40,4 +40,44 @@ def get_users_for_shell(passwd_output: str = PASSWD_OUTPUT,
     """Match the passwd_output string for users with grep_shell.
        Return a list of users.
     """
-    pass
+
+    list_of_shells = passwd_output.splitlines()
+
+    bash = [
+        i.partition(":")
+        for i in list_of_shells
+        if i.endswith("bin/bash")
+    ]
+
+    sh = [
+        i.partition(":")
+        for i in list_of_shells
+        if i.endswith("bin/sh")
+    ]
+
+    false = [
+        i.partition(":")
+        for i in list_of_shells
+        if i.endswith("bin/false")
+    ]
+
+    ksh = [
+        i.partition(":")
+        for i in list_of_shells
+        if i.endswith("ksh")
+    ]
+
+    if grep_shell == DEFAULT_SHELL:
+        return [i[0] for i in bash]
+
+    if grep_shell == "sh":
+        return [i[0] for i in sh]
+
+    if grep_shell == "false":
+        return [i[0] for i in false]
+
+    if grep_shell == "ksh":
+        return [i[0] for i in ksh]
+
+
+get_users_for_shell()
