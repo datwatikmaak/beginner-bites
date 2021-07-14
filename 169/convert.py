@@ -1,3 +1,6 @@
+CM_PER_INCH = 2.54
+
+
 def convert(value: float, fmt: str) -> float:
     """Converts the value to the designated format.
 
@@ -5,4 +8,9 @@ def convert(value: float, fmt: str) -> float:
     :param fmt: String indicating format to convert to
     :return: Float rounded to 4 decimal places after conversion
     """
-    pass
+    if fmt in {"cm", "CM"}:
+        return round(value * CM_PER_INCH, 2)
+    elif fmt in {"in", "IN"}:
+        return round(value / CM_PER_INCH, 4)
+    else:
+        raise ValueError
