@@ -31,7 +31,15 @@ def get_all_line_counts(data: str = STATS) -> list:
     """Get all 186 line counts from the STATS file,
        returning a list of ints"""
     # TODO 1: get the 186 ints from downloaded STATS file
-    pass
+    with open(data, "r") as f:
+        data = f.read()
+
+        lines = data.splitlines()
+
+        return [int(line[:8].strip()) for line in lines]
+
+
+get_all_line_counts()
 
 
 def create_stats_report(data=None):
