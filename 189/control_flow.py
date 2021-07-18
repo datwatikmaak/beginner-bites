@@ -4,4 +4,16 @@ MAX_NAMES = 5
 
 
 def filter_names(names):
-    pass
+    filtered_names = []
+    for name in names:
+
+        if name.startswith(QUIT_CHAR) or len(filtered_names) == MAX_NAMES:
+            break
+
+        if name.startswith(IGNORE_CHAR) or not name.isalpha():
+            continue
+
+        else:
+            filtered_names.append(name)
+
+    return filtered_names
