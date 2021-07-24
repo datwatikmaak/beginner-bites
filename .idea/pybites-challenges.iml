@@ -61,6 +61,19 @@
       <excludeFolder url="file://$MODULE_DIR$/96/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/136/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/208/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/100/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/117/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/130/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/143/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/149/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/165/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/167/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/169/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/172/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/181/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/188/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/189/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/214/.pytest_cache" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (pybites-challenges)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
