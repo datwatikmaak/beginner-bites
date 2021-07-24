@@ -10,6 +10,16 @@ def sandwich(func):
        that is passed in  (@wraps is to preserve the original
        func's docstring)
     """
+
     @wraps(func)
     def wrapped(*args, **kwargs):
-        pass
+        print(f"{UPPER_SLICE}")
+        func(*args, **kwargs)
+        print(f"{LOWER_SLICE}")
+
+    return wrapped
+
+
+@sandwich
+def add_ingredients(ingredients):
+    print(' / '.join(ingredients))
