@@ -4,10 +4,10 @@ from numbers_to_dec import list_to_decimal
 
 
 @pytest.mark.parametrize("nums, expected", [([4, 5, 3, 1], 4531),
-                                           ([0, 4, 2, 8], 428),
-                                           ([1, 2], 12),
-                                           ([3], 3)
-                                           ])
+                                            ([0, 4, 2, 8], 428),
+                                            ([1, 2], 12),
+                                            ([3], 3)
+                                            ])
 def test_list_of_decimal(nums, expected) -> None:
     assert list_to_decimal(nums) == expected
 
