@@ -36,6 +36,21 @@ blood_type_text = {
     "AB+": Bloodtype.AB_POS,
 }
 
+
+def is_string_type(value: str) -> Bloodtype:
+    bloodtype = blood_type_text.get(value)
+    if not bloodtype:
+        raise ValueError
+    return bloodtype
+
+
+def is_integer_type(value: int) -> Bloodtype:
+    try:
+        return Bloodtype(value)
+    except ValueError as err:
+        raise err
+
+
 # complete :
 def check_bt(donor, recipient):
     """ Checks red blood cell compatibility based on 8 blood types
@@ -45,7 +60,33 @@ def check_bt(donor, recipient):
         Returns:
         bool: True for compatability, False otherwise.
     """
-    pass
+    if not isinstance(donor, (int, str, Bloodtype)):
+        raise TypeError
+    if not isinstance(recipient, (int, str, Bloodtype)):
+        raise TypeError
+
+    # NOTE: get Bloodtype enum based on type
+    donor_bloodtype: Bloodtype = None
+    if isinstance(donor, str):
+        donor_bloodtype = is_string_type(donor)
+    elif isinstance(donor, int):
+        donor_bloodtype = is_integer_type(donor)
+    else:
+        donor_bloodtype = donor
+
+    recipient_bloodtype: Bloodtype = None
+    if isinstance(recipient, str):
+        recipient_bloodtype = is_string_type(recipient)
+    elif isinstance(recipient, int):
+        recipient_bloodtype = is_integer_type(recipient)
+    else:
+        recipient_bloodtype = recipient
+
+    donor_bloodtype_value: int = donor_bloodtype.value
+    recipient_bloodtype_value: int = recipient_bloodtype.value
+    result = _particular_antigen_comp(donor_bloodtype_value, recipient_bloodtype_value)
+
+    return all(num >= 0 for num in result)
 
 
 # hint
