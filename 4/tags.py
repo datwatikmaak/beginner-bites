@@ -21,7 +21,7 @@ def get_pybites_top_tags(n=10):
        data already loaded into the content variable"""
 
     # find all the categories with regex
-    categories = (re.findall("<category>(.*?)</category>", content, re.DOTALL))
+    categories = (re.findall("<category>(.*?)</category>", content))
 
     # count the number of occurence of each category
     top_tags = Counter(categories)
