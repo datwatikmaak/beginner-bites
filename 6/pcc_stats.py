@@ -76,10 +76,10 @@ def diehard_pybites(files=None):
 
     # your code
 
-    popular_challenges = []
+    challenges = []
     for challenge in files:
         challenge = re.split(r'[/]+', challenge)
-        popular_challenges.append(challenge[0])
+        challenges.append(challenge[0])
 
     usernames = []
     for username in files:
@@ -88,7 +88,7 @@ def diehard_pybites(files=None):
 
     non_ignored_usernames = [item for item in usernames if item not in IGNORE]
 
-    popular_challenges = Counter(popular_challenges).most_common(10)
+    popular_challenges = Counter(challenges).most_common(10)
 
     users = Counter(non_ignored_usernames).most_common(10)
     print(users[0][0])
