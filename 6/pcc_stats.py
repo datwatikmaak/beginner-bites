@@ -71,11 +71,6 @@ def diehard_pybites(files=None):
     if files is None:
         files = gen_files()
 
-    users = Counter()
-    popular_challenges = Counter()
-
-    # your code
-
     challenges = []
     for challenge in files:
         challenge = re.split(r'[/]+', challenge)
@@ -86,25 +81,10 @@ def diehard_pybites(files=None):
         username = re.split(r'[/]+', username)
         usernames.append(username[1])
 
-    non_ignored_usernames = [item for item in usernames if item not in IGNORE]
+    filtered_stats = [(x, y) for x, y in zip(challenges, usernames) if y not in IGNORE]
 
-    popular_challenges = Counter(challenges).most_common(10)
+    popular_challenges = Counter(x[0] for x in filtered_stats).most_common(1)
 
-    users = Counter(non_ignored_usernames).most_common(10)
-    print(users[0][0])
+    users = Counter(x[1] for x in filtered_stats).most_common(1)
 
-    # Stats(user='clamytoe', challenge=('01', 7))
-    # return Stats(stats, popular_challenges[0])
-    print(Stats(users[0][0], popular_challenges[0]))
-
-
-diehard_pybites(
-        files=[
-            "22/wonderfulboyx",
-            "25/bbelderbos",  # ignored
-            "25/clamytoe",
-            "21/wonderfulboyx",
-            "25/santiagobenitez",
-            "23/santiagobenitez",
-            "07/santiagobenitez"
-        ])
+    return Stats(users[0][0], popular_challenges[0])
