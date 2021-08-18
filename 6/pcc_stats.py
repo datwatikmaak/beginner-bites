@@ -80,8 +80,8 @@ def diehard_pybites(files=None):
     for challenge in files:
         challenge = re.split(r'[/]+', challenge)
         popular_challenges.append(challenge[0])
-    usernames = []
 
+    usernames = []
     for username in files:
         username = re.split(r'[/]+', username)
         usernames.append(username[1])
@@ -91,11 +91,11 @@ def diehard_pybites(files=None):
     popular_challenges = Counter(popular_challenges).most_common(10)
 
     users = Counter(non_ignored_usernames).most_common(10)
-
-    stats = "".join(name[0] for name in users)
+    print(users[0][0])
 
     # Stats(user='clamytoe', challenge=('01', 7))
-    return Stats(stats, popular_challenges[0])
+    # return Stats(stats, popular_challenges[0])
+    print(Stats(users[0][0], popular_challenges[0]))
 
 
 diehard_pybites(
