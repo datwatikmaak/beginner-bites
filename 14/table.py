@@ -7,5 +7,10 @@ awake = [True, False] * 3
 SEPARATOR = ' | '
 
 
-def generate_table():
-    pass
+def generate_table(*args):
+
+    data = zip(*args)
+    return [SEPARATOR.join(str(x) for x in d) for d in data]
+
+
+generate_table()
