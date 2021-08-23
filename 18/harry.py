@@ -1,5 +1,4 @@
 import os
-import re
 import urllib.request
 import string
 from collections import Counter
@@ -23,26 +22,19 @@ with open(stopwords_file) as f:
 
 with open(harry_text, 'r', encoding='utf-8') as f:
     text = f.read().lower().split()
-
-special_words = [special_word
-                 for special_word in text
-                 if "\'" in special_word]
-
-# print(special_words)
+    # print(text)
 
 
 def get_harry_most_common_word():
 
-    list_of_words = [word
-                     for word in text
-                     if word not in stop_words
-                     and word not in special_words
-                     and word.isalpha()]
-    # print(list_of_words)
+    no_stop_words = [word for word in text if word not in stop_words]
 
-    most_common_word = Counter(list_of_words).most_common(1)[0]
+    isalnum_chars = [char for char in no_stop_words if char.isalnum()]
 
-    print(most_common_word)
+    # counter = Counter(isalnum_chars).most_common()[0]
+    most_common_word = Counter(isalnum_chars).most_common()[0][0]
+    frequency = Counter(isalnum_chars).most_common()[0][1]
+    print(most_common_word, frequency)
 
 
 get_harry_most_common_word()
