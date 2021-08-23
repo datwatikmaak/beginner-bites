@@ -22,20 +22,27 @@ with open(stopwords_file) as f:
     # print(stop_words)
 
 with open(harry_text, 'r', encoding='utf-8') as f:
-    text = f.read().lower()
-    words = re.split(r'\W+', text)
-    print(words[:100])
+    text = f.read().lower().split()
+
+special_words = [special_word
+                 for special_word in text
+                 if "\'" in special_word]
+
+# print(special_words)
 
 
 def get_harry_most_common_word():
 
-    non_stop_words = [word for word in words if word not in stop_words and len(word) > 6 and word.startswith("du")]
-    print(non_stop_words)
+    list_of_words = [word
+                     for word in text
+                     if word not in stop_words
+                     and word not in special_words
+                     and word.isalpha()]
+    # print(list_of_words)
 
-    most_common_word = Counter(non_stop_words).most_common()[0]
-    frequency = Counter(non_stop_words).most_common()[1]
+    most_common_word = Counter(list_of_words).most_common(1)[0]
 
-    print(most_common_word, frequency)
+    print(most_common_word)
 
 
 get_harry_most_common_word()
