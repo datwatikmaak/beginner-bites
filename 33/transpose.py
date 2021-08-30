@@ -13,4 +13,7 @@ def transpose(data):
     In: transpose(data)
     Out: [('Bob', 'Julian'), (60, 221), (60, 34), (56, 78)]
     """
-    pass
+    if isinstance(data, dict):
+        return data.keys(), data.values()
+    else:
+        return list(zip(*data))
