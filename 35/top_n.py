@@ -29,12 +29,14 @@ earnings_mln = [
 
 
 def get_largest_number(numbers, n=3):
-    pass
+    heapq.heapify(numbers)
+    return heapq.nlargest(n, numbers)
 
 
 def get_latest_dates(dates, n=3):
-    pass
+    heapq.heapify(dates)
+    return heapq.nlargest(n, dates)
 
 
 def get_highest_earnings(earnings_mln, n=3):
-    pass
+    return heapq.nlargest(n, earnings_mln, key=lambda celebrity: celebrity['earnings'])
